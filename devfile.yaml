@@ -9,8 +9,6 @@ attributes:
   controller.devfile.io/devworkspace-config:
   controller.devfile.io/scc: container-build
   controller.devfile.io/storage-type: ephemeral
-projects:
-  - name: fl-apigee
 components:
   - container:
       cpuLimit: '4'
