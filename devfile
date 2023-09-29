@@ -1,0 +1,47 @@
+schemaVersion: 2.1.0
+metadata:
+  name: flair-apigee-base
+  version: "0.0.1"
+variables:
+  base-udi-version: "0.0.1-ALPHA"
+  apigee-bundle-url: "https://login.apigee.com/resources/scripts/sso-cli/ssocli-bundle.zip"
+attributes:
+  controller.devfile.io/devworkspace-config:
+  controller.devfile.io/scc: container-build
+  controller.devfile.io/storage-type: ephemeral
+projects:
+  - name: fl-apigee
+components:
+  - container:
+      cpuLimit: '4'
+      cpuRequest: '500m'
+      image: registry.redhat.io/devspaces/udi-rhel8:latest
+      env:
+        - name: SSO_LOGIN_URL
+          value: 'https://footlocker.login.apigee.com'
+      volumeMounts:
+        - name: flair
+          path: /home/user/flair
+      mountSources: true
+      sourceMapping: /projects
+  - name: flair
+    volume:
+      size: 3G
+commands:
+  - id: init-setup
+    exec:
+      label: '0: initial setup'
+      component: "tools"
+      workingDir: "${PROJECT_SOURCE}"
+      commandLine: |
+        echo "Runing udi base version: {{base-udi-version}}"
+        mkdir ~/flair/tools
+        cd ~/flair/tools
+        curl {{apigee-bundle-url}} -O
+        unzip ssocli-bundle-zip
+        mkdir ~/flair/bin
+        ./install -b ~/flair/bin
+        export PATH="/home/user/flair/bin:$PATH"
+events:
+  postStart:
+    - init-setup
