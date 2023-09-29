@@ -8,11 +8,9 @@ variables:
 attributes:
   controller.devfile.io/devworkspace-config:
   controller.devfile.io/scc: container-build
-  controller.devfile.io/storage-type: per-workspace
+  controller.devfile.io/storage-type: ephemeral
 projects:
   - name: fl-apigee
-    zip:
-      location: http://devfile-registry.openshift-devspaces.svc:8080/resources/v2/quarkus-quickstarts.zip
 components:
   - container:
       cpuLimit: '4'
