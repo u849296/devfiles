@@ -15,17 +15,6 @@ components:
         cpuLimit: '4'
         cpuRequest: '500m'
         image: registry.redhat.io/devspaces/udi-rhel8:latest
-        env:
-          - name: SSO_LOGIN_URL
-            value: 'https://footlocker.login.apigee.com'
-        volumeMounts:
-          - name: flair
-            path: /home/user/flair
-        mountSources: true
-        sourceMapping: /projects
-    - name: flair
-      volume:
-        size: 3G
 commands:
   - id: init-setup
     exec:
