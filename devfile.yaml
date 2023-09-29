@@ -8,7 +8,7 @@ variables:
 attributes:
   controller.devfile.io/devworkspace-config:
   controller.devfile.io/scc: container-build
-  controller.devfile.io/storage-type: per-user
+  #controller.devfile.io/storage-type: per-workspace
 components:
   - name: tools
     container:
@@ -23,9 +23,6 @@ components:
            path: /home/user/flair
        mountSources: true
        sourceMapping: /projects
-  - name: flair
-    volume:
-      size: 3G
 commands:
   - id: init-setup
     exec:
