@@ -8,7 +8,7 @@ variables:
 attributes:
   controller.devfile.io/devworkspace-config:
   controller.devfile.io/scc: container-build
-  #  controller.devfile.io/storage-type: ephemeral
+  controller.devfile.io/storage-type: per-user
 components:
   - name: tools
     container:
