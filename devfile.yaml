@@ -12,7 +12,7 @@ attributes:
 components:
   - name: tools
     container:
-       cpuLimit: '8'
+       cpuLimit: '6'
        cpuRequest: '5'
        image: registry.redhat.io/devspaces/udi-rhel8:latest
        env:
