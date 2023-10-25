@@ -12,8 +12,7 @@ attributes:
 components:
   - name: tools
     container:
-       cpuLimit: '6'
-       cpuRequest: '5'
+       cpuLimit: '1'
        image: registry.redhat.io/devspaces/udi-rhel8:latest
        env:
          - name: SSO_LOGIN_URL
