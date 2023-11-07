@@ -21,6 +21,9 @@ components:
            path: /home/user/flair
        mountSources: true
        sourceMapping: /projects
+  - name: flair
+    volume:
+      size: 3G
 commands:
   - id: init-setup
     exec:
