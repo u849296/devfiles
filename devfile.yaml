@@ -12,7 +12,6 @@ attributes:
 components:
   - name: tools
     container:
-       cpuLimit: '1'
        image: registry.redhat.io/devspaces/udi-rhel8:latest
        env:
          - name: SSO_LOGIN_URL
@@ -22,9 +21,6 @@ components:
            path: /home/user/flair
        mountSources: true
        sourceMapping: /projects
-  - name: flair
-    volume:
-      size: 3G
 commands:
   - id: init-setup
     exec:
